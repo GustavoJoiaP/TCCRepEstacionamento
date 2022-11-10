@@ -13,13 +13,14 @@ namespace TCC.Estacionamento.Domain.ValueObjects
         public static Placa Create(string rawPlaca){
             ValidatePossuiOitoCaracteres(rawPlaca);
             ValidatePrimeirosTresPrimeirosCaracteresSaoLetras(rawPlaca);
+            ValidatePossuiHifenNoQuartoCaracter(rawPlaca);
+            ValidateUltimosQuatroCaracteresSaoDigitos(rawPlaca);
 
-            //checa o Hifem
-            if (rawPlaca[3] != '-')
-            {
-                throw new FormatException("O 4° caractere deve ser um hífen");
-            }
-            //checa se os 3 primeiros caracteres são numeros
+            return new Placa(rawPlaca);
+        }
+
+        private static void ValidateUltimosQuatroCaracteresSaoDigitos(string rawPlaca) {
+            //checa se os 4 ultimos caracteres são numeros
             for (int i = 4; i < 8; i++)
             {
                 if (!char.IsDigit(rawPlaca[i]))
@@ -27,8 +28,15 @@ namespace TCC.Estacionamento.Domain.ValueObjects
                     throw new FormatException("Do 5º ao 8º caractere deve-se ter um número!");
                 }
             }
+        }
+        
+        private static void ValidatePossuiHifenNoQuartoCaracter(string rawPlaca) {
+            //checa o Hifem
+            if (rawPlaca[3] != '-')
+            {
+                throw new FormatException("O 4° caractere deve ser um hífen");
+            }
 
-            return new Placa(rawPlaca);
         }
 
         private static void ValidatePossuiOitoCaracteres(string rawPlaca) {

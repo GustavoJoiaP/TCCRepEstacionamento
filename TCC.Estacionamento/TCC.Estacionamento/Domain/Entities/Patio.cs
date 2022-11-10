@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TCC.Estacionamento.Domain.ValueObjects;
 
 namespace TCC.Estacionamento.Domain.Entities
@@ -13,7 +9,6 @@ namespace TCC.Estacionamento.Domain.Entities
         private double faturado;
         public Faturamento Faturado { get; set; }
         public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }
-
 
         public Patio()
         {
