@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "n/6oZs7hqEca3CSLn1gipM6UZxpVi6lZapsybx+MPxLaKLE71gpUoRHzguqNvtUZgrZuxY0xgv2lkNjaMib3aA==",
+  "dgSpecHash": "H1rkvorYmlEFmonzeWCwl66TzuH5z9CXeVPw4YxmRRH30N88ftDShoujks4oX/XP1tMQ1iwea7MLdFGxUf0gcA==",
   "success": true,
-  "projectFilePath": "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento\\TCC.Estacionamento.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento/TCC.Estacionamento.csproj",
+  "expectedPackageFiles": [
+    "/home/gbrennon/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "/home/gbrennon/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/home/gbrennon/.nuget/packages/microsoft.netcore.app.host.linux-x64/5.0.17/microsoft.netcore.app.host.linux-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

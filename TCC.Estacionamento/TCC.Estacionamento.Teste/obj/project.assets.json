@@ -5933,39 +5933,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gustavo Joia Paziani\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/gbrennon/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento.Teste\\TCC.Estacionamento.Teste.csproj",
+      "projectUniqueName": "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento.Teste/TCC.Estacionamento.Teste.csproj",
       "projectName": "TCC.Estacionamento.Teste",
-      "projectPath": "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento.Teste\\TCC.Estacionamento.Teste.csproj",
-      "packagesPath": "C:\\Users\\Gustavo Joia Paziani\\.nuget\\packages\\",
-      "outputPath": "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento.Teste\\obj\\",
+      "projectPath": "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento.Teste/TCC.Estacionamento.Teste.csproj",
+      "packagesPath": "/home/gbrennon/.nuget/packages/",
+      "outputPath": "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento.Teste/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gustavo Joia Paziani\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/gbrennon/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento\\TCC.Estacionamento.csproj": {
-              "projectPath": "D:\\TCC\\TCC.Estacionamento\\TCC.Estacionamento\\TCC.Estacionamento.csproj"
+            "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento/TCC.Estacionamento.csproj": {
+              "projectPath": "/home/gbrennon/Documents/dev/GustavoLab/TCCRepEstacionamento/TCC.Estacionamento/TCC.Estacionamento/TCC.Estacionamento.csproj"
             }
           }
         }
@@ -6011,12 +6004,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/6.0.109/RuntimeIdentifierGraph.json"
       }
     }
   }
