@@ -14,7 +14,7 @@ namespace TCC.Estacionamento.Domain.Services
         {
             VelocidadeAtual velocidade = new VelocidadeAtual();
             velocidade.Value -= (tempoSeg * 15);
-            veiculo.VelocidadeAtual = velocidade;
+            veiculo.Velocidade = velocidade;
         }
     }
 }

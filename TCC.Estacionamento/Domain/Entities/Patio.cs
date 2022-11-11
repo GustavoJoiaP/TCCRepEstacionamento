@@ -9,7 +9,7 @@ namespace TCC.Estacionamento.Domain.Entities
         private double faturado;
         public Faturamento Faturado { get; set; }
         public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }
-
+        
         public Patio()
         {
             Faturamento faturamento = new Faturamento();

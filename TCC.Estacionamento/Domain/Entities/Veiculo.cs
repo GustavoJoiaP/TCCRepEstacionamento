@@ -9,7 +9,7 @@ namespace TCC.Estacionamento.Domain.Entities
         private Proprietario _proprietario;
         private TipoVeiculo _tipo;
         public CorVeiculo Cor { get; set; }
-        public VelocidadeAtual VelocidadeAtual { get; set; }
+        public VelocidadeAtual Velocidade { get; set; }
         public ModeloVeiculo Modelo { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }
@@ -42,5 +42,15 @@ namespace TCC.Estacionamento.Domain.Entities
         {
             Proprietario.ProprietarioVeiculo = proprietario;
         }
+
+
+
+        public VelocidadeAtual Acelerar(int tempoSeg)
+        {
+            Velocidade.Value += (tempoSeg * 10);
+            return Velocidade;
+        }
+
+
     }
 }

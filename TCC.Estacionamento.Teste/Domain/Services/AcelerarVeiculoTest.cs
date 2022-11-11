@@ -22,7 +22,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             AcelerarVeiculoService.Acelerar(tempoSeg, veiculo);
 
             //Assert
-            Assert.Equal(50, veiculo.VelocidadeAtual.Value);
+            Assert.Equal(50, veiculo.Velocidade.Value);
         }
     }
 }

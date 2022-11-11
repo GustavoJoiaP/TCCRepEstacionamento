@@ -22,7 +22,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             FrearVeiculoService.Frear(tempoSeg, veiculo);
 
             //Assert
-            Assert.Equal(-150, veiculo.VelocidadeAtual.Value);
+            Assert.Equal(-150, veiculo.Velocidade.Value);
         }
     }
 }

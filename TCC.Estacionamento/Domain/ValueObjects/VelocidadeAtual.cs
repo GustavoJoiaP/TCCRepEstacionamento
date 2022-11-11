@@ -8,6 +8,6 @@ namespace TCC.Estacionamento.Domain.ValueObjects
 {
     public class VelocidadeAtual
     {
-        public int Value;
+        public double Value;
     }
 }

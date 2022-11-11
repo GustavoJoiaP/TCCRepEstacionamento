@@ -4,7 +4,7 @@ namespace TCC.Estacionamento.Domain.ValueObjects
 {
     public class Placa
     {
-        private string _value { get; }
+        public string _value { get; }
 
         private Placa(string placaValidValue) {
             _value = placaValidValue;
