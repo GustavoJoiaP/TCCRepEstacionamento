@@ -5,7 +5,7 @@ namespace TCC.Estacionamento.Domain.Entities
 {
     public class Veiculo
     {
-        private Placa _placa;
+        public Placa Placa { get; set; }
         private Proprietario _proprietario;
         private TipoVeiculo _tipo;
         public CorVeiculo Cor { get; set; }
@@ -35,7 +35,13 @@ namespace TCC.Estacionamento.Domain.Entities
         //Construtor
         public Veiculo()
         {
+            
+        }
 
+        public Veiculo(Placa placa, VelocidadeAtual velocidade)
+        {
+            Placa = placa;
+            Velocidade = velocidade;
         }
 
         public Veiculo(string proprietario)
@@ -45,7 +51,7 @@ namespace TCC.Estacionamento.Domain.Entities
 
 
 
-        public VelocidadeAtual Acelerar(int tempoSeg)
+        public virtual VelocidadeAtual Acelerar(int tempoSeg)
         {
             Velocidade.Value += (tempoSeg * 10);
             return Velocidade;

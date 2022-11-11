@@ -22,9 +22,9 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             Proprietario proprietario = new Proprietario();
             proprietario.ProprietarioVeiculo = "André Silva";
             veiculo.Proprietario = proprietario;
-            Placa placa = new Placa();
-            placa.PlacaVeiculo = "ASD-9999";
-            veiculo.Placa = placa;
+            //Placa placa = new Placa();
+            //placa.PlacaVeiculo = "ASD-9999";
+            //veiculo.Placa = placa;
             CorVeiculo cor = new CorVeiculo();
             cor.Cor = "Preto";
             veiculo.Cor = cor;

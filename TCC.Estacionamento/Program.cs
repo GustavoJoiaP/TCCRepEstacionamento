@@ -34,7 +34,7 @@ namespace TCC.Estacionamento
             foreach (Veiculo v in estacionamento.Veiculos)
             {
                 // placa, propr, hora
-                Console.WriteLine("Placa :{0}", v.Placa.PlacaVeiculo);
+                //Console.WriteLine("Placa :{0}", v.Placa.PlacaVeiculo);
                 Console.WriteLine("Proprietário :{0}", v.Proprietario.ProprietarioVeiculo);
                 Console.WriteLine("Hora de entrada :{0:HH:mm:ss}", v.HoraEntrada);
                 Console.WriteLine("********************************************");
@@ -52,9 +52,9 @@ namespace TCC.Estacionamento
             Console.Clear();
             Console.WriteLine("Registro de Saída de Veículos");
             Console.Write("Placa: ");
-            Placa placa = new Placa();
-            placa.PlacaVeiculo = Console.ReadLine();
-            Console.WriteLine(RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(placa, estacionamento));
+            //Placa placa = new Placa();
+            //placa.PlacaVeiculo = Console.ReadLine();
+            //Console.WriteLine(RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(placa, estacionamento));
 
         }
 
@@ -87,9 +87,9 @@ namespace TCC.Estacionamento
             Console.Write("Digite os dados da placa (XXX-9999): ");
             try
             {
-                Placa placa = new Placa();
-                placa.PlacaVeiculo = Console.ReadLine();
-                moto.Placa = placa;
+                //Placa placa = new Placa();
+                //placa.PlacaVeiculo = Console.ReadLine();
+                //moto.Placa = placa;
             }
             catch (FormatException fe)
             {
@@ -107,7 +107,7 @@ namespace TCC.Estacionamento
             proprietario.ProprietarioVeiculo = Console.ReadLine();
             moto.Proprietario = proprietario;
             moto.HoraEntrada = DateTime.Now;
-            AcelerarVeiculoService.Acelerar(5, moto);
+            //AcelerarVeiculoService.Acelerar(5, moto);
             FrearVeiculoService.Frear(5, moto);
             RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(moto, estacionamento);
             Console.WriteLine("Motocicleta registrada com sucesso!");
@@ -124,9 +124,9 @@ namespace TCC.Estacionamento
             Console.Write("Digite os dados da placa (XXX-9999): ");
             try
             {
-                Placa placa = new Placa();
-                placa.PlacaVeiculo = Console.ReadLine();
-                carro.Placa = placa;
+                //Placa placa = new Placa();
+                //placa.PlacaVeiculo = Console.ReadLine();
+                //carro.Placa = placa;
             }
             catch (FormatException fe)
             {
@@ -143,7 +143,7 @@ namespace TCC.Estacionamento
             proprietario.ProprietarioVeiculo = Console.ReadLine();
             carro.Proprietario = proprietario;
             carro.HoraEntrada = DateTime.Now;
-            AcelerarVeiculoService.Acelerar(5, carro);
+            //AcelerarVeiculoService.Acelerar(5, carro);
             FrearVeiculoService.Frear(5, carro);
             RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(carro, estacionamento);
             PressionaTecla();

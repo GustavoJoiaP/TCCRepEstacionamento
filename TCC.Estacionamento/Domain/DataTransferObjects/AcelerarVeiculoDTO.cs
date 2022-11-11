@@ -10,5 +10,12 @@ namespace TCC.Estacionamento.Domain.DataTransferObjects
     {
         public readonly int TempoSegundo;
         public readonly string Placa;
+        public AcelerarVeiculoDTO(int tempoSegundo, string placa)
+        {
+            TempoSegundo = tempoSegundo;
+            Placa = placa;
+        }
+
+        
     }
 }

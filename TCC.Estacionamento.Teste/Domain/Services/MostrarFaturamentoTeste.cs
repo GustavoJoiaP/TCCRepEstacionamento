@@ -23,9 +23,9 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             Proprietario proprietario = new Proprietario();
             proprietario.ProprietarioVeiculo = "André Silva";
             veiculo.Proprietario = proprietario;
-            Placa placa = new Placa();
-            placa.PlacaVeiculo = "ASD-9999";
-            veiculo.Placa = placa;
+            //Placa placa = new Placa();
+            //placa.PlacaVeiculo = "ASD-9999";
+            //veiculo.Placa = placa;
             CorVeiculo cor = new CorVeiculo();
             cor.Cor = "Preto";
             veiculo.Cor = cor;
@@ -33,7 +33,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             modelo.Modelo = "Fusca";
             veiculo.Modelo = modelo;
             RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
-            RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
+            //RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
 
             //Act
             string faturamento = MostrarFaturamentoService.MostrarFaturamento(estacionamento);
@@ -59,9 +59,9 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             Proprietario proprietario = new Proprietario();
             proprietario.ProprietarioVeiculo = a_proprietario;
             veiculo.Proprietario = proprietario;
-            Placa placa = new Placa();
-            placa.PlacaVeiculo = a_placa;
-            veiculo.Placa = placa;
+            //Placa placa = new Placa();
+            //placa.PlacaVeiculo = a_placa;
+            //veiculo.Placa = placa;
             CorVeiculo cor = new CorVeiculo();
             cor.Cor = a_cor;
             veiculo.Cor = cor;
@@ -69,7 +69,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             modelo.Modelo = a_modelo;
             veiculo.Modelo = modelo;
             RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
-            RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
+            //RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
 
             //Act
             string faturamento = MostrarFaturamentoService.MostrarFaturamento(estacionamento);

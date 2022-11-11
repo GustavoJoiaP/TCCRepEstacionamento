@@ -18,17 +18,5 @@ namespace TCC.Estacionamento.Domain.Repositories
         }
     }
 
-    public class FakeVeiculoRepository : VeiculoRepository
-    {
-        private Veiculo _veiculo;
-
-        public FakeVeiculoRepository(Veiculo veiculo) {
-            _veiculo = veiculo;
-        }
-
-        public Veiculo ProcurarVeiculoPorPlaca(Placa placa)
-        {
-            return _veiculo;
-        }
-    }
+    
 }
