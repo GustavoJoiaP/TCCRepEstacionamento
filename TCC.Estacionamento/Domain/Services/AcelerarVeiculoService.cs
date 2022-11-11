@@ -13,10 +13,12 @@ namespace TCC.Estacionamento.Domain.Services
     public class AcelerarVeiculoService
     {
         private VeiculoRepository _veiculoRepository;
+
         public AcelerarVeiculoService(VeiculoRepository veiculoRepository)
         {
             _veiculoRepository = veiculoRepository;
         }
+
         public ResultadoAcelerarDTO Acelerar(AcelerarVeiculoDTO acelerarVeiculoDTO)
         {
             var placa = Placa.Create(acelerarVeiculoDTO.Placa);
@@ -26,9 +28,7 @@ namespace TCC.Estacionamento.Domain.Services
             var velocidade = veiculo.Acelerar(acelerarVeiculoDTO.TempoSegundo);
             var resultadoAcelerarDTO = new ResultadoAcelerarDTO(velocidade.Value);
 
-
             return resultadoAcelerarDTO;
-            
         }
     }
 }

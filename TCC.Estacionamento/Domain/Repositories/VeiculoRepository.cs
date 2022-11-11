@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TCC.Estacionamento.Domain.Entities;
 using TCC.Estacionamento.Domain.ValueObjects;
 
@@ -19,6 +15,20 @@ namespace TCC.Estacionamento.Domain.Repositories
         public Veiculo ProcurarVeiculoPorPlaca(Placa placa)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public class FakeVeiculoRepository : VeiculoRepository
+    {
+        private Veiculo _veiculo;
+
+        public FakeVeiculoRepository(Veiculo veiculo) {
+            _veiculo = veiculo;
+        }
+
+        public Veiculo ProcurarVeiculoPorPlaca(Placa placa)
+        {
+            return _veiculo;
         }
     }
 }
