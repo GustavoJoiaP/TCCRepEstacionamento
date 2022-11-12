@@ -39,6 +39,20 @@ namespace TCC.Estacionamento.Domain.Entities
             return Veiculos;
         }
 
+        public virtual TipoVeiculo IdentificacaoTipoVeiculo(int inputTipoVeiculo)
+        {
+            if(inputTipoVeiculo == 0)
+            {
+                var tipoVeiculoAutomovel = TipoVeiculo.Automovel;
+                return tipoVeiculoAutomovel;
+            }
+            else
+            {
+                var tipoVeiculoMotocicleta = TipoVeiculo.Motocicleta;
+                return tipoVeiculoMotocicleta;
+            }
+        }
+
 
     }
 }
