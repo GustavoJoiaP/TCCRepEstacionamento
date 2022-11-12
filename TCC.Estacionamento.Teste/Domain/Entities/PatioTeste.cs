@@ -11,6 +11,12 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
 {
     public class PatioTeste
     {
+        private VelocidadeAtual _velocidade;
+        public void SetUp()
+        {
+            _velocidade.Value = 5;
+        }
+
         [Fact]
         public void TesteRegistrarSaidaVeiculoQuandoRepositoryRetornaVeiculoEntaoRegistreHoraSaidaNoVeiculo()
         {
@@ -25,5 +31,30 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
             //Assert
             Assert.Equal(retornoMetodoRegistrarSaidaVeiculo, veiculo.HoraSaida);
         }
+
+        [Fact]
+        public void TesteRegistrarEntradaVeiculoQuandoRegistrarEntradaVeiculoDTOPassarValoresEntaoRetorneUmVeiculo()
+        {
+            //Arrange
+            var placa = Placa.Create("ASD-9999");
+            var horaEntrada = DateTime.Now;
+            var tipoVeiculo = TipoVeiculo.Automovel;
+            var patio = new Patio();
+
+            //Action
+            var retornoMetodoResgistrarEntradaVeiculo = patio.RegistrarEntradaVeiculo(placa, horaEntrada, tipoVeiculo);
+
+            //Assert
+            var veiculoAssert = new Veiculo(placa, _velocidade, tipoVeiculo, horaEntrada, null);
+            Assert.Equal(retornoMetodoResgistrarEntradaVeiculo, veiculoAssert.HoraEntrada);
+        }
+
+        [Fact]
+        public void TesteAdicionarVeiculoNoPatioQuandoMetodoRegistrarEntradaVeiculoPassarVeiculoEntaoRetorneVeiculos()
+        {
+            //Arrange
+
+        }
+
     }
 }

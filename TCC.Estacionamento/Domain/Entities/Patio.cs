@@ -25,12 +25,13 @@ namespace TCC.Estacionamento.Domain.Entities
             return veiculo.HoraSaida.Value;
         }
 
-        public virtual Veiculo RegistrarEntradaVeiculo(Placa placa, DateTime horaEntrada, TipoVeiculo tipoVeiculo)
+        public virtual DateTime RegistrarEntradaVeiculo(Placa placa, DateTime horaEntrada, TipoVeiculo tipoVeiculo)
         {
             var velocidade = new VelocidadeAtual();
             velocidade.Value = 5;
             var veiculo = new Veiculo(placa, velocidade, tipoVeiculo, horaEntrada, null);
-            return veiculo;
+            AdicionarVeiculoNoPatio(veiculo);
+            return veiculo.HoraEntrada;
         }
 
         public virtual List<Veiculo> AdicionarVeiculoNoPatio(Veiculo veiculo)

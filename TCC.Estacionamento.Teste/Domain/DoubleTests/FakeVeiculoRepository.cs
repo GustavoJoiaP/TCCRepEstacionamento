@@ -22,5 +22,10 @@ namespace TCC.Estacionamento.Teste.Domain.DoubleTests
         {
             return _veiculo;
         }
+
+        public void RegistrarVeiculoNoPatio(Placa placa)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

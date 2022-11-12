@@ -106,7 +106,7 @@ namespace TCC.Estacionamento
             moto.HoraEntrada = DateTime.Now;
             //AcelerarVeiculoService.Acelerar(5, moto);
             FrearVeiculoService.Frear(5, moto);
-            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(moto, estacionamento);
+            //RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(moto, estacionamento);
             Console.WriteLine("Motocicleta registrada com sucesso!");
             Console.WriteLine("Pressione qualquer tecla para prosseguir.");
             Console.ReadKey();
@@ -138,7 +138,7 @@ namespace TCC.Estacionamento
             carro.HoraEntrada = DateTime.Now;
             //AcelerarVeiculoService.Acelerar(5, carro);
             FrearVeiculoService.Frear(5, carro);
-            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(carro, estacionamento);
+            //RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(carro, estacionamento);
             PressionaTecla();
         }
 
