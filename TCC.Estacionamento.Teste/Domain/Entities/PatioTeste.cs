@@ -53,7 +53,14 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
         public void TesteAdicionarVeiculoNoPatioQuandoMetodoRegistrarEntradaVeiculoPassarVeiculoEntaoRetorneVeiculos()
         {
             //Arrange
+            var veiculo = new Veiculo();
+            var patio = new Patio();
 
+            //Action
+            var veiculos = patio.AdicionarVeiculoNoPatio(veiculo);
+
+            //Assert
+            Assert.Contains(veiculo, veiculos);
         }
 
     }
