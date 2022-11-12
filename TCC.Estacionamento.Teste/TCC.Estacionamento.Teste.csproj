@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\ValueObjects\" />
   </ItemGroup>
 

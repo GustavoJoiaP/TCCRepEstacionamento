@@ -26,13 +26,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             //Placa placa = new Placa();
             //placa.PlacaVeiculo = "ASD-9999";
             //veiculo.Placa = placa;
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = "Preto";
-            veiculo.Cor = cor;
-            ModeloVeiculo modelo = new ModeloVeiculo();
-            modelo.Modelo = "Fusca";
-            veiculo.Modelo = modelo;
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
+            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(veiculo, estacionamento);
             //RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
 
             //Act
@@ -62,13 +56,7 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             //Placa placa = new Placa();
             //placa.PlacaVeiculo = a_placa;
             //veiculo.Placa = placa;
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = a_cor;
-            veiculo.Cor = cor;
-            ModeloVeiculo modelo = new ModeloVeiculo();
-            modelo.Modelo = a_modelo;
-            veiculo.Modelo = modelo;
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
+            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(veiculo, estacionamento);
             //RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
 
             //Act

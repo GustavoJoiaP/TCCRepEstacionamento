@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TCC.Estacionamento.Domain.ValueObjects;
 
 namespace TCC.Estacionamento.Domain.Entities
@@ -17,5 +18,13 @@ namespace TCC.Estacionamento.Domain.Entities
             Faturado = faturamento;
             veiculos = new List<Veiculo>();
         }
+
+        public virtual DateTime RegistrarSaidaVeiculo(Veiculo veiculo, DateTime horaSaida)
+        {
+            veiculo.HoraSaida = horaSaida;
+            return veiculo.HoraSaida.Value;
+        }
+
+
     }
 }

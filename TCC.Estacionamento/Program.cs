@@ -99,9 +99,6 @@ namespace TCC.Estacionamento
                 return;
             }
             Console.Write("Digite a cor da moto: ");
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = Console.ReadLine();
-            moto.Cor = cor;
             Console.Write("Digite o nome do proprietário: ");
             Proprietario proprietario = new Proprietario();
             proprietario.ProprietarioVeiculo = Console.ReadLine();
@@ -109,7 +106,7 @@ namespace TCC.Estacionamento
             moto.HoraEntrada = DateTime.Now;
             //AcelerarVeiculoService.Acelerar(5, moto);
             FrearVeiculoService.Frear(5, moto);
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(moto, estacionamento);
+            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(moto, estacionamento);
             Console.WriteLine("Motocicleta registrada com sucesso!");
             Console.WriteLine("Pressione qualquer tecla para prosseguir.");
             Console.ReadKey();
@@ -134,10 +131,6 @@ namespace TCC.Estacionamento
                 PressionaTecla();
                 return;
             }
-            Console.Write("Digite a cor do carro: ");
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = Console.ReadLine();
-            carro.Cor = cor;
             Console.Write("Digite o nome do proprietário: ");
             Proprietario proprietario = new Proprietario();
             proprietario.ProprietarioVeiculo = Console.ReadLine();
@@ -145,7 +138,7 @@ namespace TCC.Estacionamento
             carro.HoraEntrada = DateTime.Now;
             //AcelerarVeiculoService.Acelerar(5, carro);
             FrearVeiculoService.Frear(5, carro);
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(carro, estacionamento);
+            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(carro, estacionamento);
             PressionaTecla();
         }
 

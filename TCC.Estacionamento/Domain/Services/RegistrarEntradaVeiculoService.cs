@@ -7,7 +7,7 @@ using TCC.Estacionamento.Domain.Entities;
 
 namespace TCC.Estacionamento.Domain.Services
 {
-    public class RegistrarEntradaVeiculoServices
+    public class RegistrarEntradaVeiculoService
     {
         public static void RegistrarEntradaVeiculo(Veiculo veiculo, Patio estacionamento)
         {

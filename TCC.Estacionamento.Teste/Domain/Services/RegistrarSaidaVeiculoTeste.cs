@@ -3,42 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TCC.Estacionamento.Domain.DataTransferObjects;
 using TCC.Estacionamento.Domain.Entities;
 using TCC.Estacionamento.Domain.Services;
 using TCC.Estacionamento.Domain.ValueObjects;
+using TCC.Estacionamento.Teste.Domain.DoubleTests;
 using Xunit;
 
 namespace TCC.Estacionamento.Teste.Domain.Services
 {
     public class RegistrarSaidaVeiculoTeste
     {
-        [Fact]
-        public void TesteRequisicaoQuandoContemArguemntoValidoEntaoChameServiceRegistrarSaidaVeiculo()
+        private TipoVeiculo _tipoVeiculo;
+        private VelocidadeAtual _velocidade;
+        public void SetUp()
         {
-            //Arragen
-            Patio estacionamento = new Patio();
-            Veiculo veiculo = new Veiculo();
+            _velocidade.Value = 5;
+            _tipoVeiculo = TipoVeiculo.Automovel;
 
-            Proprietario proprietario = new Proprietario();
-            proprietario.ProprietarioVeiculo = "André Silva";
-            veiculo.Proprietario = proprietario;
-            //Placa placa = new Placa();
-            //placa.PlacaVeiculo = "ASD-9999";
-            //veiculo.Placa = placa;
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = "Preto";
-            veiculo.Cor = cor;
-            ModeloVeiculo modelo = new ModeloVeiculo();
-            modelo.Modelo = "Fusca";
-            veiculo.Modelo = modelo;
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
+        }
 
-            //Act
-            //RegistrarSaidaVeiculoServices.RegistrarSaidaVeiculo(veiculo.Placa, estacionamento);
+        [Fact]
+        public void TesteRegistrarSaidaVeiculoQuandoRepositoryRetornaVeiculoEntaoRetornaResultadoRegistrarSaidaVeiculoDTO()
+        {
+            //Arrange
+            var placa = Placa.Create("ASD-9999");
+            var horaEntrada = new DateTime(2022, 11, 11);
+            var horaSaida = new DateTime(2022, 11, 12);
+            var veiculo = new Veiculo(placa, _velocidade, _tipoVeiculo, horaEntrada, horaSaida);
+            var fakePatio = new FakePatio();
+            var veiculoRepository = new FakeVeiculoRepository(veiculo);
+
+            var registrarSaidaVeiculoService = new RegistrarSaidaVeiculoService(fakePatio, veiculoRepository);
+            var registrarSaidaVeiculoDTO = new RegistrarSaidaVeiculoDTO(horaSaida, placa.Value);
+
+            //Action
+            var resultadoRegistrarSaidaVeiculoDTO = registrarSaidaVeiculoService.RegistrarSaidaVeiculo(registrarSaidaVeiculoDTO);
 
             //Assert
-            Assert.DoesNotContain(veiculo, estacionamento.Veiculos);
-
+            var assertResultadoRegistrarSaidaVeiculoDTO = new ResultadoRegistrarSaidaVeiculoDTO(horaSaida, horaEntrada, placa.Value);
+            Assert.Equal(assertResultadoRegistrarSaidaVeiculoDTO, resultadoRegistrarSaidaVeiculoDTO);
         }
     }
 }

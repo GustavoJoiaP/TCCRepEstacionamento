@@ -3,13 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TCC.Estacionamento.Domain.DataTransferObjects;
 using TCC.Estacionamento.Domain.Entities;
+using TCC.Estacionamento.Domain.Repositories;
 using TCC.Estacionamento.Domain.ValueObjects;
 
 namespace TCC.Estacionamento.Domain.Services
 {
-    public class RegistrarSaidaVeiculoServices
+    public class RegistrarSaidaVeiculoService
     {
+
+        private VeiculoRepository _veiculoRepository;
+        private Patio _patio;
+
+        public RegistrarSaidaVeiculoService(Patio patio, VeiculoRepository veiculoRepository)
+        {
+            _patio = patio;
+            _veiculoRepository = veiculoRepository;
+        }
+
+        public ResultadoRegistrarSaidaVeiculoDTO RegistrarSaidaVeiculo(RegistrarSaidaVeiculoDTO registrarSaidaVeiculoDTO)
+        {
+            var placa = Placa.Create(registrarSaidaVeiculoDTO.Placa);
+            var veiculo = _veiculoRepository.ProcurarVeiculoPorPlaca(placa);
+            var resultadoRegistrarSaidaVeiculo =_patio.RegistrarSaidaVeiculo(veiculo, registrarSaidaVeiculoDTO.HoraSaida);
+            var resultadoRegistroSaidaVeiculo = new ResultadoRegistrarSaidaVeiculoDTO(resultadoRegistrarSaidaVeiculo, veiculo.HoraEntrada, veiculo.Placa.Value);
+            return resultadoRegistroSaidaVeiculo;
+        }
+
+
         //public static string RegistrarSaidaVeiculo(Placa placa, Patio estacionamento)
         //{
         //    Veiculo procurado = null;
@@ -17,16 +39,16 @@ namespace TCC.Estacionamento.Domain.Services
 
         //    foreach (Veiculo v in estacionamento.Veiculos)
         //    {
-        //        if (v.Placa.PlacaVeiculo == placa.PlacaVeiculo)
+        //        if (v.Placa == placa)
         //        {
         //            v.HoraSaida = DateTime.Now;
         //            TimeSpan tempoPermanencia = v.HoraSaida - v.HoraEntrada;
         //            double valorASerCobrado = 0;
         //            if (v.Tipo == TipoVeiculo.Automovel)
         //            {
-        //                /// o método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
-        //                /// Ex.: 0,9999 ou 0,0001 teto = 1
-        //                /// Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
+        //                / o método Math.Ceiling(), aplica o conceito de teto da matemática onde o valor máximo é o inteiro imediatamente posterior a ele.
+        //                / Ex.: 0,9999 ou 0,0001 teto = 1
+        //                / Obs.: o conceito de chão é inverso e podemos utilizar Math.Floor();
         //                valorASerCobrado = Math.Ceiling(tempoPermanencia.TotalHours) * 2;
 
         //            }

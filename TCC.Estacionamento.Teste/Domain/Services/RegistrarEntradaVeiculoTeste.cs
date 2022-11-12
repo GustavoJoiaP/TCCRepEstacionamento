@@ -25,15 +25,9 @@ namespace TCC.Estacionamento.Teste.Domain.Services
             //Placa placa = new Placa();
             //placa.PlacaVeiculo = "ASD-9999";
             //veiculo.Placa = placa;
-            CorVeiculo cor = new CorVeiculo();
-            cor.Cor = "Preto";
-            veiculo.Cor = cor;
-            ModeloVeiculo modelo = new ModeloVeiculo();
-            modelo.Modelo = "Fusca";
-            veiculo.Modelo = modelo;
 
             //Act
-            RegistrarEntradaVeiculoServices.RegistrarEntradaVeiculo(veiculo, estacionamento);
+            RegistrarEntradaVeiculoService.RegistrarEntradaVeiculo(veiculo, estacionamento);
 
             //Assert
             Assert.Contains(veiculo, estacionamento.Veiculos);
