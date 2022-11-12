@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TCC.Estacionamento.Domain.DataTransferObjects;
 using TCC.Estacionamento.Domain.Entities;
 using TCC.Estacionamento.Domain.Services;
 using TCC.Estacionamento.Domain.ValueObjects;
+using TCC.Estacionamento.Teste.Domain.DoubleTests;
 using Xunit;
 
 namespace TCC.Estacionamento.Teste.Domain.Services
@@ -15,7 +17,22 @@ namespace TCC.Estacionamento.Teste.Domain.Services
         [Fact]
         public void TesteRegistrarEntradaVeiculoQuandoRegistrarEntradaVeiculoNoVeiculoRepositoryEntaoRetorneResultadoRegistrarEntradaVeiculoDTO()
         {
+            //Arrange
+            var placa = Placa.Create("ASD-9999");
+            var horaEntrada = new DateTime(2022, 11, 11);
+            int tipoVeiculo = 0;
+            var fakePatio = new FakePatio();
+            var veiculoRepository = new FakeVeiculoRepository(placa);
 
+            var registrarEntradaVeiculoService = new RegistrarEntradaVeiculoService(veiculoRepository, fakePatio);
+            var registrarEntradaVeiculoDTO = new RegistrarEntradaVeiculoDTO(placa.Value, horaEntrada, tipoVeiculo);
+
+            //Action
+            var resultadoRegistrarEntradaVeiculo = registrarEntradaVeiculoService.RegistrarEntradaVeiculo(registrarEntradaVeiculoDTO);
+
+            //Asser
+            var assertResultadoRegistrarEntradaVeiculoDTO = new ResultadoRegistrarEntradaVeiculoDTO(placa.Value, horaEntrada);
+            Assert.Equal(assertResultadoRegistrarEntradaVeiculoDTO, resultadoRegistrarEntradaVeiculo);
         }
         //public void TesteRequisicaoQuandoContemArguemntoValidoEntaoChameServiceRegistrarEntradaVeiculo()
         //{

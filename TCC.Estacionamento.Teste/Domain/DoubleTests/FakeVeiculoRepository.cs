@@ -12,10 +12,15 @@ namespace TCC.Estacionamento.Teste.Domain.DoubleTests
     public class FakeVeiculoRepository : VeiculoRepository
     {
         private Veiculo _veiculo;
+        private Placa _placa;
 
         public FakeVeiculoRepository(Veiculo veiculo)
         {
             _veiculo = veiculo;
+        }
+        public FakeVeiculoRepository(Placa placa)
+        {
+            _placa = placa;
         }
 
         public Veiculo ProcurarVeiculoPorPlaca(Placa placa)
@@ -25,7 +30,7 @@ namespace TCC.Estacionamento.Teste.Domain.DoubleTests
 
         public Placa RegistrarVeiculoNoPatio(Placa placa)
         {
-            throw new NotImplementedException();
+            return _placa;
         }
     }
 }

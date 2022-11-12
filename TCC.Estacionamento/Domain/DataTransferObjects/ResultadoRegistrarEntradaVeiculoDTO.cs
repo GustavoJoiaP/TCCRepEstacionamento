@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TCC.Estacionamento.Domain.DataTransferObjects
 {
-    public class ResultadoRegistrarEntradaVeiculoDTO
+    public struct ResultadoRegistrarEntradaVeiculoDTO
     {
         public readonly string Placa;
         public readonly DateTime HoraEntrada;
