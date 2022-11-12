@@ -10,10 +10,12 @@ namespace TCC.Estacionamento.Domain.DataTransferObjects
     {
         public readonly string Placa;
         public readonly DateTime HoraEntrada;
-        public RegistrarEntradaVeiculoDTO(string placa, DateTime horaEntrada)
+        public readonly string TipoVeiculo;
+        public RegistrarEntradaVeiculoDTO(string placa, DateTime horaEntrada, string tipoVeiculo)
         {
             Placa = placa;
             HoraEntrada = horaEntrada;
+            TipoVeiculo = tipoVeiculo;
         }
     }
 }
