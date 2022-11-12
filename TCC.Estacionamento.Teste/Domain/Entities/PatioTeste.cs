@@ -63,5 +63,19 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
             Assert.Contains(veiculo, veiculos);
         }
 
+        [Fact]
+        public void TesteIdentificarTipoVeiculoQuandoRegistrarEntradaVeiculoDTOPassarValorInteiroEntaoRetorneTipoVeiculo()
+        {
+            //Arrange
+            int tipoVeiculo = 0;
+            var patio = new Patio();
+
+            //Action
+            var retornoIdentificarTipoVeiculo = patio.IdentificacaoTipoVeiculo(tipoVeiculo);
+
+            //Assert
+            var assertTipoVeiculo = TipoVeiculo.Automovel;
+            Assert.Equal(retornoIdentificarTipoVeiculo, assertTipoVeiculo);
+        }
     }
 }

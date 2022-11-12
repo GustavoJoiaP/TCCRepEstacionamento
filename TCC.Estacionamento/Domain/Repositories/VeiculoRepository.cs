@@ -7,13 +7,13 @@ namespace TCC.Estacionamento.Domain.Repositories
     public interface VeiculoRepository
     {
         public Veiculo ProcurarVeiculoPorPlaca(Placa placa);
-        public void RegistrarVeiculoNoPatio(Placa placa);
+        public Placa RegistrarVeiculoNoPatio(Placa placa);
 
     }
 
     public class MySqlVeiculoRepository : VeiculoRepository
     {
-        public void RegistrarVeiculoNoPatio(Placa placa)
+        public Placa RegistrarVeiculoNoPatio(Placa placa)
         {
             throw new NotImplementedException();
         }
