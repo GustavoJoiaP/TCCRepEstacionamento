@@ -7,15 +7,12 @@ namespace TCC.Estacionamento.Domain.Entities
     public class Patio
     {
         private List<Veiculo> veiculos;
-        private double faturado;
         public Faturamento Faturado { get; set; }
         public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }
         
         public Patio()
         {
-            Faturamento faturamento = new Faturamento();
-            faturamento.Value = 0;
-            Faturado = faturamento;
+            Faturado.Value = 0;
             veiculos = new List<Veiculo>();
         }
 
