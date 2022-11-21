@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Domain\ValueObjects\**" />
+    <EmbeddedResource Remove="Domain\ValueObjects\**" />
+    <None Remove="Domain\ValueObjects\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -21,10 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TCC.Estacionamento\TCC.Estacionamento.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domain\ValueObjects\" />
   </ItemGroup>
 
 </Project>
