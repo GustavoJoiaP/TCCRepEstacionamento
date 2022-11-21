@@ -14,18 +14,27 @@ namespace TCC.Estacionamento.Teste.Domain.Services
 {
     public class RegistrarEntradaVeiculoTeste
     {
+        private TipoVeiculo _tipoVeiculo;
+        private VelocidadeAtual _velocidade;
+        public void SetUp()
+        {
+            _velocidade.Value = 5;
+            _tipoVeiculo = TipoVeiculo.Automovel;
+
+        }
         [Fact]
         public void TesteRegistrarEntradaVeiculoQuandoRegistrarEntradaVeiculoNoVeiculoRepositoryEntaoRetorneResultadoRegistrarEntradaVeiculoDTO()
         {
             //Arrange
             var placa = Placa.Create("ASD-9999");
             var horaEntrada = new DateTime(2022, 11, 11);
-            int tipoVeiculo = 0;
+            var horaSaida = new DateTime(2022, 11, 12);
+            var veiculo = new Veiculo(placa, _velocidade, _tipoVeiculo, horaEntrada, horaSaida);
             var fakePatio = new FakePatio();
-            var veiculoRepository = new FakeVeiculoRepository(placa);
+            var veiculoRepository = new FakeVeiculoRepository(veiculo);
 
             var registrarEntradaVeiculoService = new RegistrarEntradaVeiculoService(veiculoRepository, fakePatio);
-            var registrarEntradaVeiculoDTO = new RegistrarEntradaVeiculoDTO(placa.Value, horaEntrada, tipoVeiculo);
+            var registrarEntradaVeiculoDTO = new RegistrarEntradaVeiculoDTO(placa.Value, horaEntrada);
 
             //Action
             var resultadoRegistrarEntradaVeiculo = registrarEntradaVeiculoService.RegistrarEntradaVeiculo(registrarEntradaVeiculoDTO);

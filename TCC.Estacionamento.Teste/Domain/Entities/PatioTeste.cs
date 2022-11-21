@@ -11,10 +11,13 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
 {
     public class PatioTeste
     {
+        private TipoVeiculo _tipoVeiculo;
         private VelocidadeAtual _velocidade;
         public void SetUp()
         {
             _velocidade.Value = 5;
+            _tipoVeiculo = TipoVeiculo.Automovel;
+
         }
 
         [Fact]
@@ -37,15 +40,16 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
         {
             //Arrange
             var placa = Placa.Create("ASD-9999");
-            var horaEntrada = DateTime.Now;
-            var tipoVeiculo = TipoVeiculo.Automovel;
+            var horaEntrada = new DateTime(2022, 11, 11);
+            var horaSaida = new DateTime(2022, 11, 12);
+            var veiculo = new Veiculo(placa, _velocidade, _tipoVeiculo, horaEntrada, horaSaida);
             var patio = new Patio();
 
             //Action
-            var retornoMetodoResgistrarEntradaVeiculo = patio.RegistrarEntradaVeiculo(placa, horaEntrada, tipoVeiculo);
+            var retornoMetodoResgistrarEntradaVeiculo = patio.RegistrarEntradaVeiculo(veiculo, horaEntrada);
 
             //Assert
-            var veiculoAssert = new Veiculo(placa, _velocidade, tipoVeiculo, horaEntrada, null);
+            var veiculoAssert = new Veiculo(placa, _velocidade, _tipoVeiculo, horaEntrada, null);
             Assert.Equal(retornoMetodoResgistrarEntradaVeiculo, veiculoAssert.HoraEntrada);
         }
 
@@ -63,19 +67,6 @@ namespace TCC.Estacionamento.Teste.Domain.Entities
             Assert.Contains(veiculo, veiculos);
         }
 
-        [Fact]
-        public void TesteIdentificarTipoVeiculoQuandoRegistrarEntradaVeiculoDTOPassarValorInteiroEntaoRetorneTipoVeiculo()
-        {
-            //Arrange
-            int tipoVeiculo = 0;
-            var patio = new Patio();
-
-            //Action
-            var retornoIdentificarTipoVeiculo = patio.IdentificacaoTipoVeiculo(tipoVeiculo);
-
-            //Assert
-            var assertTipoVeiculo = TipoVeiculo.Automovel;
-            Assert.Equal(retornoIdentificarTipoVeiculo, assertTipoVeiculo);
-        }
+       
     }
 }
