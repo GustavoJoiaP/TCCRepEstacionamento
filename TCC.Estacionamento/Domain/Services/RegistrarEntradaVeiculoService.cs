@@ -23,10 +23,10 @@ namespace TCC.Estacionamento.Domain.Services
         public ResultadoRegistrarEntradaVeiculoDTO RegistrarEntradaVeiculo(RegistrarEntradaVeiculoDTO registrarEntradaVeiculoDTO)
         {
             var placa = Placa.Create(registrarEntradaVeiculoDTO.Placa);
-            var tipoVeiculo =_patio.IdentificacaoTipoVeiculo(registrarEntradaVeiculoDTO.TipoVeiculo);
-            var horaEntrada =_patio.RegistrarEntradaVeiculo(placa, registrarEntradaVeiculoDTO.HoraEntrada, tipoVeiculo);
-            var retornoPlacaRepository = _veiculoRepository.RegistrarVeiculoNoPatio(placa);
-            var resultadoRegistrarEntradaVeiculoDTO = new ResultadoRegistrarEntradaVeiculoDTO(retornoPlacaRepository.Value, horaEntrada);
+            var retornoVeiculoRepository = _veiculoRepository.RegistrarVeiculo(placa);
+            var horaEntrada =_patio.RegistrarEntradaVeiculo(retornoVeiculoRepository, registrarEntradaVeiculoDTO.HoraEntrada);
+            
+            var resultadoRegistrarEntradaVeiculoDTO = new ResultadoRegistrarEntradaVeiculoDTO(retornoVeiculoRepository.Placa.Value, horaEntrada);
             return resultadoRegistrarEntradaVeiculoDTO;
         }
 

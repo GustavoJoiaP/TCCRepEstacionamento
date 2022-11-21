@@ -25,11 +25,9 @@ namespace TCC.Estacionamento.Domain.Entities
             return veiculo.HoraSaida.Value;
         }
 
-        public virtual DateTime RegistrarEntradaVeiculo(Placa placa, DateTime horaEntrada, TipoVeiculo tipoVeiculo)
+        public virtual DateTime RegistrarEntradaVeiculo(Veiculo veiculo, DateTime horaEntrada)
         {
-            var velocidade = new VelocidadeAtual();
-            velocidade.Value = 5;
-            var veiculo = new Veiculo(placa, velocidade, tipoVeiculo, horaEntrada, null);
+            veiculo.HoraEntrada = horaEntrada;
             AdicionarVeiculoNoPatio(veiculo);
             return veiculo.HoraEntrada;
         }
@@ -40,20 +38,6 @@ namespace TCC.Estacionamento.Domain.Entities
             return Veiculos;
         }
 
-        public virtual TipoVeiculo IdentificacaoTipoVeiculo(int inputTipoVeiculo)
-        {
-            if(inputTipoVeiculo == 0)
-            {
-                var tipoVeiculoAutomovel = TipoVeiculo.Automovel;
-                return tipoVeiculoAutomovel;
-            }
-            else
-            {
-                var tipoVeiculoMotocicleta = TipoVeiculo.Motocicleta;
-                return tipoVeiculoMotocicleta;
-            }
-        }
-
-
+       
     }
 }
