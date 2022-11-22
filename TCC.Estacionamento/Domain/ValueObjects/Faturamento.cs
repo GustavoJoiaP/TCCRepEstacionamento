@@ -9,6 +9,5 @@ namespace TCC.Estacionamento.Domain.ValueObjects
     public class Faturamento
     {
         public double Value;
-
     }
 }

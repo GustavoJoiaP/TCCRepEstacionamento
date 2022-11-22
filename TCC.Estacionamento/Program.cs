@@ -82,7 +82,7 @@ namespace TCC.Estacionamento
         {
             Console.WriteLine("Dados da Motocicleta");
             Veiculo moto = new Veiculo();
-            moto.Tipo = TipoVeiculo.Motocicleta;
+            moto.TipoVeiculo = TipoVeiculo.Motocicleta;
             //preeencher placa,cor,hora,entrada e proprietário
             Console.Write("Digite os dados da placa (XXX-9999): ");
             try
@@ -116,7 +116,7 @@ namespace TCC.Estacionamento
         {
             Console.WriteLine("Dados do Automovél");
             Veiculo carro = new Veiculo();
-            carro.Tipo = TipoVeiculo.Automovel;
+            carro.TipoVeiculo = TipoVeiculo.Automovel;
             //preeencher placa,cor,hora,entrada e proprietário.
             Console.Write("Digite os dados da placa (XXX-9999): ");
             try

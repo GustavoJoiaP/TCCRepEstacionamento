@@ -12,6 +12,17 @@ namespace TCC.Estacionamento.Domain.Entities
         public VelocidadeAtual Velocidade { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime? HoraSaida { get; set; }
+        public TipoVeiculo TipoVeiculo { get => _tipo; set => _tipo = value; }
+
+        //Construtor
+        public Veiculo(Placa placa, VelocidadeAtual velocidade, TipoVeiculo tipo, DateTime horaEntrada, DateTime? horaSaida)
+        {
+            Placa = placa;
+            Velocidade = velocidade;
+            TipoVeiculo = tipo;
+            HoraEntrada = horaEntrada;
+            HoraSaida = horaSaida;
+        }
 
         public Proprietario Proprietario
         {
@@ -29,19 +40,7 @@ namespace TCC.Estacionamento.Domain.Entities
             }
 
         }
-        public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
-
-        //Construtor
-        public Veiculo(Placa placa, VelocidadeAtual velocidade, TipoVeiculo tipo, DateTime horaEntrada, DateTime? horaSaida)
-        {
-            Placa = placa;
-            Velocidade = velocidade;
-            Tipo = tipo;
-            HoraEntrada = horaEntrada;
-            HoraSaida = horaSaida;
-        }
-
-
+        
         public virtual VelocidadeAtual Acelerar(int tempoSeg)
         {
             Velocidade.Value += (tempoSeg * Aceleracao);
